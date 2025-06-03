@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+  {% block extracss %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  {% endblock %}
+</head>
+<body>
+{% block bodyblock %}
+<div class="loginpage">
+    <div class="loginform">
+        <h1>Login Form</h1>
+        <form method="post">
+          {% csrf_token %}
+            <div class="credentials">
+                {{form.as_p}}
+            </div>
+          <input type="submit" value="submit" class="submitbtn">
+        </form>
+    </div>
+    <div class="loginimg">
+        <img src="{% static 'images/anime2.jpg' %}">
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
